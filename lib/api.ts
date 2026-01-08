@@ -1,6 +1,11 @@
 import axios from "axios";
-import type { FetchNoteResponse, NewNote, Note } from "@/types/note";
+import type { NewNote, Note } from "@/types/note";
 
+
+export interface FetchNoteResponse {
+  notes: Note[];
+  totalPages: number;
+}
 
 
 const BASE_URL = "https://notehub-public.goit.study/api/notes"
@@ -33,7 +38,6 @@ export async function deleteNote(id:string):Promise<void> {
     await axios.delete<void>(`${BASE_URL}/${id}`, {
         headers: {
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_NOTEHUB_TOKEN}`,
-            "Content-Type": "application/json",
         }
     })
     

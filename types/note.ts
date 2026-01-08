@@ -7,11 +7,6 @@ export interface Note {
   tag: string;
 }
 
-export interface FetchNoteResponse {
-  notes: Note[];
-  totalPages: number;
-}
-
 export interface NewNote {
   title: string;
   content: string;
